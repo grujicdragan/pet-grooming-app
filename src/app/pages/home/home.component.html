@@ -48,11 +48,14 @@
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    @for (item of marquee; track $index) {
-      <span>{{ item }}</span><i>✦</i>
-    }
-    @for (item of marquee; track $index) {
-      <span>{{ item }}</span><i>✦</i>
+    @for (copy of [0, 1]; track copy) {
+      <div class="marquee-group">
+        @for (_ of [0, 1, 2]; track _) {
+          @for (item of marquee; track $index) {
+            <span>{{ item }}</span><i>✦</i>
+          }
+        }
+      </div>
     }
   </div>
 </div>

@@ -304,30 +304,43 @@
 
 .marquee-track {
   display: flex;
-  gap: 1.6rem;
   width: max-content;
-  animation: marquee 32s linear infinite;
+  animation: marquee 48s linear infinite;
+  will-change: transform;
 }
 
-.marquee-track span {
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 1.6rem;
+  /* Same as gap so the seam between the two groups matches item spacing */
+  padding-inline-end: 1.6rem;
+}
+
+.marquee-group span {
   font-family: var(--serif);
   font-size: 1.05rem;
   font-weight: 500;
   white-space: nowrap;
 }
 
-.marquee-track i {
+.marquee-group i {
   color: var(--copper);
   font-style: normal;
   font-size: 0.8rem;
-  align-self: center;
+  flex-shrink: 0;
 }
 
 .marquee:hover .marquee-track {
   animation-play-state: paused;
 }
 
+/* Two identical groups → move exactly one group width, then loop */
 @keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
   to {
     transform: translateX(-50%);
   }
