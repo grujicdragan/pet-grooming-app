@@ -1,0 +1,64 @@
+<section class="panel admin">
+  <p class="eyebrow">Osoblje</p>
+  <h1>Pregled termina</h1>
+  <p class="lede">
+    Lista je u memoriji aplikacije. Seed podaci su tu da salon izgleda pun, a novi termini sa
+    zakazivanja se dodaju odmah.
+  </p>
+
+  <div class="filters">
+    <button type="button" [class.active]="filter() === 'all'" (click)="setFilter('all')">Svi</button>
+    <button type="button" [class.active]="filter() === 'scheduled'" (click)="setFilter('scheduled')">Zakazani</button>
+    <button type="button" [class.active]="filter() === 'completed'" (click)="setFilter('completed')">Završeni</button>
+    <button type="button" [class.active]="filter() === 'cancelled'" (click)="setFilter('cancelled')">Otkazani</button>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Kad</th>
+          <th>Ljubimac</th>
+          <th>Usluga</th>
+          <th>Vlasnik</th>
+          <th>Cena</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of rows(); track row.id) {
+          <tr>
+            <td>
+              <strong>{{ row.date | date: 'dd.MM.' }} {{ row.time }}</strong>
+            </td>
+            <td>{{ row.petName }}</td>
+            <td>
+              {{ row.service }}
+              @if (row.discounted) {
+                <span class="chip">-40%</span>
+              }
+            </td>
+            <td>{{ row.ownerName }}</td>
+            <td>{{ row.price | currency: 'RSD' : 'symbol' : '1.0-0' }}</td>
+            <td>
+              <span class="status" [attr.data-status]="row.status">{{ labels[row.status] }}</span>
+            </td>
+            <td class="actions">
+              @if (row.status === 'scheduled') {
+                <div class="action-btns">
+                  <button type="button" (click)="complete(row.id)">Završi</button>
+                  <button type="button" class="ghost" (click)="cancel(row.id)">Otkaži</button>
+                </div>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="7">Nema termina za ovaj filter.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

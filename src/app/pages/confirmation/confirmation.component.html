@@ -1,0 +1,40 @@
+<section class="panel confirm">
+  @if (booking.lastBooking(); as visit) {
+    <p class="eyebrow">Potvrda</p>
+    <h1>Termin je spreman</h1>
+    <p class="lede">Ovo je samo UI tok. Ništa nije upisano u bazu niti na disk.</p>
+
+    <dl>
+      <div>
+        <dt>Ljubimac</dt>
+        <dd>{{ visit.petName }}</dd>
+      </div>
+      <div>
+        <dt>Usluga</dt>
+        <dd>{{ visit.service }}</dd>
+      </div>
+      <div>
+        <dt>Kad</dt>
+        <dd>{{ visit.date | date: 'fullDate' }} u {{ visit.time }}</dd>
+      </div>
+      <div>
+        <dt>Cena</dt>
+        <dd>
+          {{ visit.price | currency: 'RSD' : 'symbol' : '1.0-0' }}
+          @if (visit.discounted) {
+            <span class="chip">40% loyalty popust</span>
+          }
+        </dd>
+      </div>
+    </dl>
+
+    <div class="actions">
+      <a routerLink="/loyalty" class="btn btn-secondary" (click)="finishVisit()">Simuliraj završen tretman</a>
+      <a routerLink="/book" class="btn btn-primary">Novi termin</a>
+    </div>
+  } @else {
+    <h1>Nema aktivnog termina</h1>
+    <p class="lede">Prvo izaberi datum i vreme.</p>
+    <a routerLink="/book" class="btn btn-primary">Idi na zakazivanje</a>
+  }
+</section>

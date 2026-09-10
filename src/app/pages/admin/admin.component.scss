@@ -1,0 +1,89 @@
+.admin {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.6rem;
+}
+
+.admin h1 {
+  margin-top: 0.2rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.2rem 0;
+}
+
+.filters button,
+.action-btns button {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.filters .active {
+  background: var(--moss);
+  color: white;
+  border-color: transparent;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 48rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.75rem 0.55rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.status {
+  display: inline-flex;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--leaf-soft);
+}
+
+.status[data-status='cancelled'] {
+  background: #f8e4d6;
+  color: var(--copper);
+}
+
+.status[data-status='completed'] {
+  background: #e8f0ff;
+  color: #314e86;
+}
+
+.actions {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.action-btns {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.ghost {
+  background: transparent;
+}

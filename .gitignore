@@ -1,0 +1,8 @@
+.angular/
+.vscode/
+dist/
+node_modules/
+.npm-cache/
+.idea/
+*.log
+.DS_Store

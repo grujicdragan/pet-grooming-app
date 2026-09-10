@@ -1,0 +1,96 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(16rem, 0.8fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.form-card,
+.summary {
+  padding: 1.6rem;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.reward-banner {
+  margin: 1rem 0 0;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  background: #f8e4d6;
+  color: var(--copper);
+  font-weight: 600;
+}
+
+.slots {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.slots legend {
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+}
+
+.slot {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 0.9rem;
+  padding: 0.75rem 0.4rem;
+  cursor: pointer;
+}
+
+.slot.selected {
+  background: var(--moss);
+  color: white;
+  border-color: transparent;
+}
+
+.mini-stamps {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.mini-stamps span {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--line);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mini-stamps .filled {
+  background: var(--leaf-soft);
+  border-style: solid;
+  border-color: var(--moss);
+}
+
+.mini-stamps .reward {
+  border-color: var(--copper);
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .slot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

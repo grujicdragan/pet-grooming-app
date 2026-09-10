@@ -1,0 +1,38 @@
+.confirm {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+dl {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1.5rem 0;
+}
+
+dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.7rem;
+}
+
+dt {
+  color: var(--muted);
+}
+
+dd {
+  margin: 0;
+  font-weight: 600;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}

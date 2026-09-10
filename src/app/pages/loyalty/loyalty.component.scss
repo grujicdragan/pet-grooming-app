@@ -1,0 +1,95 @@
+.loyalty {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.loyalty h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin-top: 0.2rem;
+}
+
+.card {
+  margin-top: 1.6rem;
+  padding: 1.2rem;
+  border-radius: 1.3rem;
+  background: linear-gradient(180deg, #fff 0%, #f7f1e6 100%);
+  border: 1px solid var(--line);
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stamps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 1.2rem 0;
+}
+
+.stamp {
+  aspect-ratio: 1;
+  border-radius: 1.1rem;
+  border: 2px dashed var(--line);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--muted);
+}
+
+.stamp span {
+  font-size: 1.3rem;
+}
+
+.stamp.filled {
+  background: var(--leaf-soft);
+  border-style: solid;
+  border-color: var(--moss);
+  color: var(--moss);
+}
+
+.stamp.reward {
+  border-color: var(--copper);
+}
+
+.stamp.reward.filled {
+  background: #f8e4d6;
+  color: var(--copper);
+}
+
+.status {
+  margin: 0;
+  font-weight: 600;
+}
+
+.rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.4rem 0;
+}
+
+.rules p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+@media (max-width: 700px) {
+  .stamps,
+  .rules {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stamps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stamp:last-child {
+    grid-column: 1 / -1;
+  }
+}
