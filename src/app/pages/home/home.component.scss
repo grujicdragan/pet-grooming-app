@@ -59,6 +59,7 @@
 .hero-copy::after {
   content: '';
   position: absolute;
+  z-index: 0;
   border-radius: 50%;
   filter: blur(40px);
   opacity: 0.7;
@@ -94,6 +95,7 @@
 
 .hero-copy > * {
   position: relative;
+  z-index: 1;
 }
 
 .badges {
@@ -176,16 +178,18 @@
 
 .stats dt {
   font-family: var(--serif);
-  font-size: 1.55rem;
+  font-size: 1.65rem;
   font-weight: 700;
   color: var(--moss);
   line-height: 1;
 }
 
 .stats dd {
-  margin: 0.25rem 0 0;
-  color: var(--muted);
-  font-size: 0.84rem;
+  margin: 0.3rem 0 0;
+  color: var(--ink);
+  opacity: 0.75;
+  font-size: 0.86rem;
+  font-weight: 500;
 }
 
 .hero-photo {
